@@ -16,10 +16,20 @@ body {
     grid-row: 1/4;
     background-color: #1E252B;
     height: 100vh;
+}
+
+.side-bar-contents {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding-top: 6rem;
+    padding-top: 5rem;
     padding-inline: 2rem;
+    row-gap: 2rem;
+}
+
+.side-bar-header {
+    display: flex;
+    gap: 2rem;
+    margin-left: 2rem;
 }
 
 .header {
@@ -36,4 +46,5 @@ body {
 
 .text {
     color: #fff;
+    margin-top: 1.2rem;
 }
