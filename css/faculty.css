@@ -88,3 +88,8 @@
         display: grid;
         place-items: center;
     }
+    
+    .success {
+        font-size: 20rem;
+        color: rgb(26, 211, 51);
+    }

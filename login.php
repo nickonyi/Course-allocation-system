@@ -1,3 +1,8 @@
+
+<?php include ("./db-connect.php");?>
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +17,7 @@
 <body>
 
     <div class="container">
-    <form action="check-login.php" method="post">
+    <form action="login-username.php" method="post">
         <div class="mb-3">
           <label for="username" 
                  class="form-label">Username</label>
@@ -29,21 +34,10 @@
                  name="password"
                  class="form-control" id="password">
         </div>
-
-        <div class="mb-1">
-            <label class="form-label">Select user:</label>
-          </div>
-        <select class="form-select" 
-                name="role">
-            <option selected value="student">Student</option>
-            <option value="staff">Staff</option>
-            <option value="admin">Admin</option>
-          </select>
-       
-        
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button name="submit" type="submit" class="btn btn-primary">Login</button>
       </form>
     </div>
   </div> 
 </body>
 </html>
+

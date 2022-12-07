@@ -6,8 +6,8 @@ $dbname = "course_allocation_system_db";
 
 $conn = mysqli_connect($dbhost,$dbuser,$dbpassword,$dbname);
 
-if($conn){
+if(!$conn){
     die("failed to connect!");
-}
+}  
 
 ?>
