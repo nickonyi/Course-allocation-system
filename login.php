@@ -1,5 +1,17 @@
 
-<?php include ("./db-connect.php");?>
+<?php 
+include ("./db-connect.php");
+session_start();
+if(isset($_SESSION['email'])){
+  if($_SESSION['role'] == "student" ){
+   header("location:student/index.php");
+  } else if($_SESSION['role'] == "admin"){
+    header("location:admin/index.php");
+  }
+}
+
+
+?>
 
 
 
