@@ -16,6 +16,7 @@ if(isset($_POST['submit'])){
             $_SESSION['email'] = $row['email_id'];
             if($row['role'] == "student"){
                 $_SESSION['role'] = "student";
+                $_SESSION['login'] ="<div class='success'>Login successful!!</div>";
                 header("location:student/index.php");
                 exit();
             } else if($row['role'] == "admin"){
@@ -32,16 +33,17 @@ if(isset($_POST['submit'])){
                 header("location:lecturer/index.php");
                 exit();
             } 
-        }else{
-            echo "<script>
+        }else{  
+        header("location:login.php");
+        echo "<script>
         alert('Wrong password');
         </script>";
-        header("location:login.php");
           
         }
         
     } else {
-        echo "<script>alert('hello');</script>";
+        $_SESSION['login'] = "<div>Username no no</div>";
+        header("location:login.php");
         
     }
     

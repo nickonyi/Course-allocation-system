@@ -9,7 +9,7 @@
 <body>
     <h1>Mimi ndo mwalimu</h1>
    
-    <?php echo "<script>alert('ready or no ready');</script>";?>
+
    
     
 </body>

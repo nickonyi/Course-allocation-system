@@ -43,3 +43,8 @@ body .container .form-select {
 body .container .form-text {
     color: rgb(34, 33, 33);
 }
+
+.success {
+    color: rgb(37, 168, 37);
+    font-size: 3rem;
+}

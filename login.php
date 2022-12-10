@@ -2,13 +2,20 @@
 <?php 
 include ("./db-connect.php");
 session_start();
+
 if(isset($_SESSION['email'])){
   if($_SESSION['role'] == "student" ){
    header("location:student/index.php");
   } else if($_SESSION['role'] == "admin"){
     header("location:admin/index.php");
+  } else if($_SESSION['role'] =="lecturer"){
+    header("location:lecturer/index.php");
+  } else if($_SESSION['role'] == "faculty"){
+    header("location:faculty/index.php");
   }
 }
+
+
 
 
 ?>
@@ -30,6 +37,10 @@ if(isset($_SESSION['email'])){
 
     <div class="container">
     <form action="login-username.php" method="post">
+    <?php
+      if(isset($_SESSION['login'])){
+        echo $_SESSION['login'];
+      }?>
         <div class="mb-3">
           <label for="username" 
                  class="form-label">Username</label>

@@ -107,3 +107,8 @@ body {
     position: relative;
     top: -4.5rem;
 }
+
+.success {
+    color: rgb(37, 168, 37);
+    font-size: 3rem;
+}
