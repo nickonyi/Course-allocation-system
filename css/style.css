@@ -112,3 +112,7 @@ body {
     color: rgb(37, 168, 37);
     font-size: 3rem;
 }
+
+a {
+    text-decoration: none;
+}
