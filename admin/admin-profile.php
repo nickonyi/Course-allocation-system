@@ -5,36 +5,27 @@ include('includes/dbconnection.php');
 if (strlen($_SESSION['vpmsaid']==0)) {
   header('location:logout.php');
   } else{
-
-if(isset($_POST['submit']))
+    if(isset($_POST['submit']))
   {
-    $parkingnumber=mt_rand(100000000, 999999999);
-    $catename=$_POST['catename'];
-     $vehcomp=$_POST['vehcomp'];
-    $vehreno=$_POST['vehreno'];
-    $ownername=$_POST['ownername'];
-    $ownercontno=$_POST['ownercontno'];
-    $enteringtime=$_POST['enteringtime'];
-    
-     
-    $query=mysqli_query($con, "insert into  tblvehicle(ParkingNumber,VehicleCategory,VehicleCompanyname,RegistrationNumber,OwnerName,OwnerContactNumber) value('$parkingnumber','$catename','$vehcomp','$vehreno','$ownername','$ownercontno')");
+    $adminid=$_SESSION['vpmsaid'];
+    $aname=$_POST['adminname'];
+  $mobno=$_POST['contactnumber'];
+  
+     $query=mysqli_query($con, "update tbladmin set AdminName ='$aname', MobileNumber='$mobno' where ID='$adminid'");
     if ($query) {
-echo "<script>alert('Vehicle Entry Detail has been added');</script>";
-echo "<script>window.location.href ='manage-incomingvehicle.php'</script>";
+    echo '<script>alert("Admin profile has been updated.")</script>';
   }
   else
     {
-     echo "<script>alert('Something Went Wrong. Please try again.');</script>";       
+      echo '<script>alert("Something Went Wrong. Please try again")</script>';
     }
-
-  
-}
+  }
   ?>
 <!doctype html>
 <html class="no-js" lang="">
 <head>
     
-    <title>ADD Department</title>
+    <title>VPMS - Admin Profile</title>
    
 
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
@@ -66,7 +57,7 @@ echo "<script>window.location.href ='manage-incomingvehicle.php'</script>";
                     <div class="col-sm-4">
                         <div class="page-header float-left">
                             <div class="page-title">
-                                <h1>Tuk Admin</h1>
+                                <h1>Dashboard</h1>
                             </div>
                         </div>
                     </div>
@@ -75,8 +66,8 @@ echo "<script>window.location.href ='manage-incomingvehicle.php'</script>";
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
                                     <li><a href="dashboard.php">Dashboard</a></li>
-                                    <li><a href="add-vehicle.php">Vehicle</a></li>
-                                    <li class="active">Add Vehicle</li>
+                                    <li><a href="admin-profile.php">Profile</a></li>
+                                    <li class="active">Admin Profile</li>
                                 </ol>
                             </div>
                         </div>
@@ -103,47 +94,38 @@ echo "<script>window.location.href ='manage-incomingvehicle.php'</script>";
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Add </strong> Vehicle
+                                <strong>Admin </strong> Profile
                             </div>
                             <div class="card-body card-block">
                                 <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                    
+                                  
+                                   <?php
+$adminid=$_SESSION['vpmsaid'];
+$ret=mysqli_query($con,"select * from tbladmin where ID='$adminid'");
+$cnt=1;
+while ($row=mysqli_fetch_array($ret)) {
 
+?>
                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="select" class=" form-control-label">Select</label></div>
-                                        <div class="col-12 col-md-9">
-                                            <select name="catename" id="catename" class="form-control">
-                                                <option value="0">Select Category</option>
-                                                <?php $query=mysqli_query($con,"select * from tblcategory");
-              while($row=mysqli_fetch_array($query))
-              {
-              ?>    
-                                                 <option value="<?php echo $row['VehicleCat'];?>"><?php echo $row['VehicleCat'];?></option>
-                  <?php } ?> 
-                                            </select>
-                                        </div>
+                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Admin Name</label></div>
+                                        <div class="col-12 col-md-9"><input class=" form-control" id="adminname" name="adminname" type="text" value="<?php  echo $row['AdminName'];?>"></div>
                                     </div>
                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Vehicle Company</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="vehcomp" name="vehcomp" class="form-control" placeholder="Vehicle Company" required="true"></div>
-                                    </div>
-                                 
-                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Registration Number</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="vehreno" name="vehreno" class="form-control" placeholder="Registration Number" required="true"></div>
+                                        <div class="col col-md-3"><label for="email-input" class=" form-control-label">User Name</label></div>
+                                        <div class="col-12 col-md-9"><input class=" form-control" id="username" name="username" type="text" value="<?php  echo $row['UserName'];?>"  readonly='true'></div>
                                     </div>
                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Owner Name</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="ownername" name="ownername" class="form-control" placeholder="Owner Name" required="true"></div>
+                                        <div class="col col-md-3"><label for="password-input" class=" form-control-label">Contact Number</label></div>
+                                        <div class="col-12 col-md-9"> <input class="form-control " id="contactnumber" name="contactnumber" type="text" value="<?php  echo $row['MobileNumber'];?>" required="true"></div>
                                     </div>
-                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Owner Contact Number</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="ownercontno" name="ownercontno" class="form-control" placeholder="Owner Contact Number" required="true" maxlength="10" pattern="[0-9]+"></div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="disabled-input" class=" form-control-label">Email</label></div>
+                                        <div class="col-12 col-md-9"><input class="form-control " id="email" name="email" type="email" value="<?php  echo $row['Email'];?>" required="true" readonly='true'></div>
                                     </div>
-                                   
+                                  
                                     
-                                    
-                                   <p style="text-align: center;"> <button type="submit" class="btn btn-primary btn-sm" name="submit" >Add</button></p>
+                                    <?php } ?>
+                                   <p style="text-align: center;"> <button type="submit" class="btn btn-primary btn-sm" name="submit" >Update</button></p>
                                 </form>
                             </div>
                             
