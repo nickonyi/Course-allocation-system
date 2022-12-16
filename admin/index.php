@@ -18,6 +18,7 @@ session_start();
     <div class="header">
         <?php if(isset($_SESSION['login'])){
             echo $_SESSION['login'];
+            
         }
     ?></div>
     <div class="side-bar">
