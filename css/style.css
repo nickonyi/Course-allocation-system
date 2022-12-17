@@ -55,6 +55,13 @@ body {
     gap: 2rem;
 }
 
+.grid--department {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .text {
     color: #fff;
     margin-top: 1.2rem;
@@ -110,9 +117,36 @@ body {
 
 .success {
     color: rgb(37, 168, 37);
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 
 a {
     text-decoration: none;
+}
+
+.head {
+    align-self: start;
+    text-transform: uppercase;
+}
+
+form {
+    margin-top: 50px;
+}
+
+form>input {
+    margin-block: 10px;
+    width: 400px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+form>button {
+    padding: 10px;
+    font-size: 1.15rem;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
