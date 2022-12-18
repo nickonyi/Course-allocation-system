@@ -113,6 +113,9 @@ if(isset($_POST['submit'])){
             <option value="3">3rd</option>
             <option value="4">4th</option>
             <option value="5">5th</option>
+            <option value="6">6th</option>
+            <option value="7">7th</option>
+            <option value="8">8th</option>
         </select><br>
         <button name='submit' type='submit'>save</button>
     </form>

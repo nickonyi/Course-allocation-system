@@ -3,18 +3,19 @@ include_once("../db-connect.php");
 session_start();
 
 if(isset($_POST['submit'])){
-    $lecname= $_POST['lec-name'];
-    $lecaddress = $_POST['address'];
-    $lecemail = $_POST['lec-email'];
-    $leccontact = $_POST['lec-contact'];
-    $lecdesg = $_POST['designation'];
-    $lecdep = $_POST['dept-name'];
-    $leccred = $_POST['lec-cred'];
+   $studentname = $_POST['student-name'];
+   $studentemail = $_POST['student-email'];
+   $studentcontact = $_POST['student-contact'];
+   $studentaddress = $_POST['address'];
+   $studentdate = $_POST['date'];
+   $studentdept = $_POST['dept-name'];
+   $studentRegNo = "TUK/".rand(1000,9999)."/".rand(1000,9999);
 
-    $sql = "INSERT INTO lecturers(department_id,lecturer_name,address,email,contact_no,designation,credit_to_be_taken) VALUES('$lecdep','$lecname','$lecaddress','$lecemail','$leccontact','$lecdesg','$leccred')";
+
+    $sql = "INSERT INTO students(student_name,email,contact_no,address,year,department_id,student_reg_no) VALUES('$studentname','$studentemail','$studentcontact','$studentaddress','$studentdate','$studentdept','$studentRegNo')";
     $result = mysqli_query($conn,$sql);
     if($result){
-          $_SESSION['status'] = "Lecturer added successfully!!!";
+          $_SESSION['status'] = "Registration done successfully!!!";
          
     }
     
@@ -77,7 +78,12 @@ if(isset($_POST['submit'])){
         if(isset($_SESSION['status'])){
             ?>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
+ <?php echo $_SESSION['status']; ?><br>
+ <strong>Student Registration Number:</strong> <?php echo $studentRegNo;?><br>
+ <strong>Student Name:</strong> <?php echo $studentname;?><br>
+ <strong>Student Email:</strong> <?php echo $studentemail;?><br>
+ <strong>Student Contact:</strong> <?php echo $studentcontact;?><br>
+ <strong>Student Address:</strong> <?php echo $studentaddress;?><br>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
             <?php
@@ -87,23 +93,16 @@ if(isset($_POST['submit'])){
         
         ?>
     <form method="post" action="#">
-        <label for="lecturer-name">Lecturer name</label><br>
-        <input type="text" name="lec-name" id="lec-name" placeholder="Lecturer name"><br>
-        <label for="address">Address</label><br>
-        <textarea rows="5" cols="50" name="address"id="address"></textarea><br>
+        <label for="student-name">Student name</label><br>
+       <input type="text" name="student-name" id="student-name" placeholder="Type Student name"><br>
         <label for="Email">Email</label><br>
-        <input type="email" name="lec-email" id="lec-email" placeholder="Type email"><br>
+        <input type="email" name="student-email" id="student-email" placeholder="Type Student email"><br>
         <label for="Contact No">Contact No</label><br>
-        <input type="text" name="lec-contact" id="lec-contact" placeholder="Type contact number"><br>
-        <label for="lec-desg">Designation</label><br>
-        <select name="designation" id="desgnation">
-            <option value="desgnation">--Select Designation--</option>
-            <option value="chairman">Chairman</option>
-            <option value="professor">Professor</option>
-            <option value="assistant-prof">Assistant Professor</option>
-            <option value="assoc-professor">Associate Professor</option>
-            <option value="lecturer">Lecturer</option>
-        </select><br>
+        <input type="text" name="student-contact" id="student-contact" placeholder="Type Student contact"><br>
+        <label for="Address">Address</label><br>
+        <textarea name="address" id="address" cols="40" rows="5"></textarea><br>
+        <label for="date">Date</label><br>
+        <input type="date" name="date" id="date"><br>
         <?php
        
         $sql = "SELECT * from departments";
@@ -111,12 +110,11 @@ if(isset($_POST['submit'])){
         ?>
         <label for="department-name">Department name</label><br>
      <select name="dept-name">
+        <option value="select-department">--Select department--</option>
         <?php while($row = mysqli_fetch_array($result)):;?>
         <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
         <?php endwhile?>*/
      </select><br>
-     <label for="credit">Credit to be taken</label><br>
-        <input type="number" name="lec-cred" id="lec-cred" placeholder="Credit taken"><br>
         <button name='submit' type='submit'>save</button>
     </form>
     </div>

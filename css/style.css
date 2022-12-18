@@ -60,6 +60,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 2rem;
 }
 
 .text {
@@ -149,6 +150,7 @@ form>button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 form>select {
