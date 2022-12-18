@@ -79,9 +79,11 @@ session_start();
             <div>
                 <img src="../assets/icons/applic.png" alt="">
             </div>
+            <a href="course-assign-to-teacher.php">
             <div class="text">
                 Assign course to lecturer
             </div>
+            </a>
         </div>
         <div class="box content-4">
             <div>

@@ -2,13 +2,12 @@
 include_once("../db-connect.php");
 session_start();
 if(isset($_POST['submit'])){
-    $depart_code = $_POST['depart-code'];
-    $depart_name = $_POST['depart-name'];
+   echo $lecname = $_POST['lec-name'];
 
     $sql = "INSERT INTO departments SET department_code='$depart_code',department_name='$depart_name'";
      $res = mysqli_query($conn,$sql);
      if($res){
-        $_SESSION['status'] = "Department added successfully!!!";
+         echo "successfully inserted";
      } 
 }
 
@@ -22,8 +21,6 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script defer src="../scripts/script.js"></script>
     <title>Course allocation system</title>
 </head>
@@ -69,23 +66,42 @@ if(isset($_POST['submit'])){
 
     </div>
     <div class="grid--department main-content-depart">
-        <h1 class="head">Department setup</h1>
-        <?php
-        if(isset($_SESSION['status'])){
-            ?>
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-            <?php
-            
-            unset($_SESSION['status']);
-        }
-        
-        ?>
+        <h1 class="head">Assign course to teacher</h1>
     <form method="post">
-        <label for="department-code">Department code</label><br>
-        <input type="text" name="depart-code" id="department-code" placeholder="Type department code"><br>
+    <?php
+       
+       $sql = "SELECT * from departments";
+       $result = mysqli_query($conn,$sql); 
+       ?>
+       <label for="department-name">Department name</label><br>
+    <select name="dept-name">
+       <?php while($row = mysqli_fetch_array($result)):;?>
+       <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
+       <?php endwhile?>*/
+    </select><br>
+    <?php
+       
+       $sql = "SELECT * from lecturers";
+       $result = mysqli_query($conn,$sql); 
+       ?>
+       <label for="lecturer-name">Lecturer</label><br>
+    <select name="lec-name">
+       <?php while($row = mysqli_fetch_array($result)):;?>
+       <option value="<?php echo $row['lecturer_name'];?>"><?php echo $row['lecturer_name'];?></option>
+       <?php endwhile?>*/
+    </select><br>
+    <?php
+    $sql = "SELECT credit_to_be_taken FROM lecturers WHERE lecturer_name='$lecname'";
+    $result = mysqli_query($conn,$sql);
+    if($result){
+        if($row = $result->fetch_assoc()){
+            $credit_taken = $row['credit_to_be_taken'];
+        }
+    }
+    
+    ?>
+        <label for="credit-taken">Credit to be taken</label><br>
+        <input type="text" name="credit-taken" id="credit-taken" value="<?php echo $credit_taken?>" readonly><br>
         <label for="department-name">Department name</label><br>
         <input type="text" name="depart-name" id="department-name" placeholder="Type department name"><br>
         <button name='submit' type='submit'>save</button>
@@ -94,9 +110,3 @@ if(isset($_POST['submit'])){
 </body>
 
 </html>
-<?php
-
-   
-
-
-?>
