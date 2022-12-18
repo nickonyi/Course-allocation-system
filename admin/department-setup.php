@@ -78,7 +78,7 @@ session_start();
         $sql = "INSERT INTO departments SET department_code='$depart_code',department_name='$depart_name'";
          $res = mysqli_query($conn,$sql);
          if($res){
-            $_SESSION['success'] = "<div class='success'>Successfully Inserted!!!!</div>";
+             echo "successfully inserted";
          } 
     }
 
