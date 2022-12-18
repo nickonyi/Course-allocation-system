@@ -98,9 +98,12 @@ session_start();
             <div>
                 <img src="../assets/icons/Vector.svg" alt="">
             </div>
+            <a href="student.php">
             <div class="text">
                 Students
             </div>
+            </a>
+           
         </div>
         <div class="box content-6">
             <div>
