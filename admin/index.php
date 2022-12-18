@@ -80,7 +80,7 @@ session_start();
                 <img src="../assets/icons/applic.png" alt="">
             </div>
             <div class="text">
-                Register
+                Assign course to lecturer
             </div>
         </div>
         <div class="box content-4">

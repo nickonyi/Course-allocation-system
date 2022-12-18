@@ -3,13 +3,13 @@ include_once("../db-connect.php");
 session_start();
 
 if(isset($_POST['submit'])){
-   $studentname = $_POST['student-name'];
-   $studentemail = $_POST['student-email'];
-   $studentcontact = $_POST['student-contact'];
-   $studentaddress = $_POST['address'];
-   $studentdate = $_POST['date'];
-   $studentdept = $_POST['dept-name'];
-   $studentRegNo = "TUK/".rand(1000,9999)."/".rand(1000,9999);
+    $studentname = $_POST['student-name'];
+    $studentemail = $_POST['student-email'];
+    $studentcontact = $_POST['student-contact'];
+    $studentaddress = $_POST['address'];
+    $studentdate = $_POST['date'];
+    $studentdept = $_POST['dept-name'];
+    $studentRegNo = "TUK/".rand(000,999)."/".rand(000,999);
 
 
     $sql = "INSERT INTO students(student_name,email,contact_no,address,year,department_id,student_reg_no) VALUES('$studentname','$studentemail','$studentcontact','$studentaddress','$studentdate','$studentdept','$studentRegNo')";
@@ -98,7 +98,7 @@ if(isset($_POST['submit'])){
         <label for="Email">Email</label><br>
         <input type="email" name="student-email" id="student-email" placeholder="Type Student email"><br>
         <label for="Contact No">Contact No</label><br>
-        <input type="text" name="student-contact" id="student-contact" placeholder="Type Student contact"><br>
+        <input type="number" min="8"  name="student-contact" id="student-contact" placeholder="Type Student contact"><br>
         <label for="Address">Address</label><br>
         <textarea name="address" id="address" cols="40" rows="5"></textarea><br>
         <label for="date">Date</label><br>
@@ -113,7 +113,7 @@ if(isset($_POST['submit'])){
         <option value="select-department">--Select department--</option>
         <?php while($row = mysqli_fetch_array($result)):;?>
         <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
-        <?php endwhile?>*/
+        <?php endwhile?>
      </select><br>
         <button name='submit' type='submit'>save</button>
     </form>
