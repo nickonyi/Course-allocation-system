@@ -117,9 +117,12 @@ session_start();
             <div>
                 <img src="../assets/icons/form.svg" alt="">
             </div>
+            <a href="course-setup.php">
             <div class="text">
                 Courses
             </div>
+            </a>
+            
         </div>
         <div class="box content-8">
             <div>
