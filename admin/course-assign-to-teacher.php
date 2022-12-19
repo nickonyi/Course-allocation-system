@@ -1,14 +1,20 @@
 <?php
 include_once("../db-connect.php");
 session_start();
-if(isset($_POST['submit'])){
-   echo $lecname = $_POST['lec-name'];
 
-    $sql = "INSERT INTO departments SET department_code='$depart_code',department_name='$depart_name'";
-     $res = mysqli_query($conn,$sql);
-     if($res){
-         echo "successfully inserted";
-     } 
+if(isset($_POST['submit'])){
+    $deptname = $_POST['dept-name'];
+    $lecturer = $_POST['lec-name'];
+    $credittaken = $_POST['credit-taken'];
+    $courseid = $_POST['course-code'];
+    $coursecredit = $_POST['course-credit'];
+
+    $sql = "INSERT INTO course_assign_to_teachers(department_id,teacher_id,course_id,credit_took,unassigned_course_id) VALUES('$deptname','$lecturer','$courseid','$credittaken',0)";
+    $result = mysqli_query($conn,$sql);
+    if($result){
+           $_SESSION['status'] = "Course assigned successfully!!!";
+         
+    }
 }
 
 
@@ -21,6 +27,9 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script defer src="../scripts/script.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script defer src="../scripts/script.js"></script>
     <title>Course allocation system</title>
 </head>
@@ -67,6 +76,19 @@ if(isset($_POST['submit'])){
     </div>
     <div class="grid--department main-content-depart">
         <h1 class="head">Assign course to teacher</h1>
+        <?php
+        if(isset($_SESSION['status'])){
+            ?>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+            <?php
+            
+            unset($_SESSION['status']);
+        }
+        
+        ?>
     <form method="post">
     <?php
        
@@ -74,7 +96,7 @@ if(isset($_POST['submit'])){
        $result = mysqli_query($conn,$sql); 
        ?>
        <label for="department-name">Department name</label><br>
-    <select name="dept-name">
+    <select name="dept-name" id="dept-name">
        <?php while($row = mysqli_fetch_array($result)):;?>
        <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
        <?php endwhile?>*/
@@ -85,25 +107,37 @@ if(isset($_POST['submit'])){
        $result = mysqli_query($conn,$sql); 
        ?>
        <label for="lecturer-name">Lecturer</label><br>
-    <select name="lec-name">
+    <select name="lec-name" id="lec-name">
        <?php while($row = mysqli_fetch_array($result)):;?>
-       <option value="<?php echo $row['lecturer_name'];?>"><?php echo $row['lecturer_name'];?></option>
+       <option value="<?php echo $row['id'];?>"><?php echo $row['lecturer_name'];?></option>
        <?php endwhile?>*/
     </select><br>
-    <?php
-    $sql = "SELECT credit_to_be_taken FROM lecturers WHERE lecturer_name='$lecname'";
-    $result = mysqli_query($conn,$sql);
-    if($result){
-        if($row = $result->fetch_assoc()){
-            $credit_taken = $row['credit_to_be_taken'];
-        }
-    }
-    
-    ?>
         <label for="credit-taken">Credit to be taken</label><br>
-        <input type="text" name="credit-taken" id="credit-taken" value="<?php echo $credit_taken?>" readonly><br>
-        <label for="department-name">Department name</label><br>
-        <input type="text" name="depart-name" id="department-name" placeholder="Type department name"><br>
+        <input type="number" name="credit-taken" id="credit-taken"><br>
+         <?php
+       
+       $sql = "SELECT * from courses";
+       $result = mysqli_query($conn,$sql); 
+       ?>
+       <label for="course-code">Course code</label><br>
+    <select name="course-code">
+       <?php while($row = mysqli_fetch_array($result)):;?>
+       <option value="<?php echo $row['id'];?>"><?php echo $row['course_code'];?></option>
+       <?php endwhile?>
+    </select><br>
+    <?php
+       
+       $sql = "SELECT * from courses";
+       $result = mysqli_query($conn,$sql); 
+       ?>
+       <label for="course-name">Course Name</label><br>
+    <select name="course-name">
+       <?php while($row = mysqli_fetch_array($result)):;?>
+       <option value="<?php echo $row['id'];?>"><?php echo $row['course_name'];?></option>
+       <?php endwhile?>
+    </select><br>
+    <label for="course-credit">Course credit</label><br>
+        <input type="number" name="course-credit" id="course-credit"><br>
         <button name='submit' type='submit'>save</button>
     </form>
     </div>

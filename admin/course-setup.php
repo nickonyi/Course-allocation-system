@@ -87,7 +87,7 @@ if(isset($_POST['submit'])){
         ?>
     <form method="post" action="#">
         <label for="course-code">Course Code</label><br>
-        <input type="text" name="course-code" id="course-code" placeholder="Type the department code"><br>
+        <input type="text" name="course-code" id="course-code" placeholder="Type the course code"><br>
         <label for="course-name">Course Name</label><br>
         <input type="text" name="course-name" id="course-name" placeholder="Type the course name"><br>
         <label for="course-credit">Course Credit</label><br>
@@ -105,17 +105,17 @@ if(isset($_POST['submit'])){
         <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
         <?php endwhile?>
      </select><br>
-     <label for="semester">Semester</label><br>
+     <label for="semester">Semesters</label><br>
      <select name="semester" id="semester">
-            <option value="semester">--Select Semester--</option>
-            <option value="1">1st</option>
-            <option value="2">2nd</option>
-            <option value="3">3rd</option>
-            <option value="4">4th</option>
-            <option value="5">5th</option>
-            <option value="6">6th</option>
-            <option value="7">7th</option>
-            <option value="8">8th</option>
+            <option value="semester">--Select Semesters--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
         </select><br>
         <button name='submit' type='submit'>save</button>
     </form>
