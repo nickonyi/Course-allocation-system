@@ -111,9 +111,11 @@ session_start();
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
+            <a href="course-stats.php">
             <div class="text">
-                Statistics
+                View course Statistics
             </div>
+            </a>
         </div>
         <div class="box content-7">
             <div>
