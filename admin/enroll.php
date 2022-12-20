@@ -3,19 +3,19 @@ include_once("../db-connect.php");
 session_start();
 
 if(isset($_POST['submit'])){
-    $coursecode= $_POST['course-code'];
-    $coursename = $_POST['course-name'];
-    $coursecredit = $_POST['course-credit'];
-    $coursedescription = $_POST['course-description'];
-    $depatment = $_POST['dept-name'];
-    $semester = $_POST['semester'];
-    $courseduration = $_POST['course-duration'];
-    $coursefee = $_POST['course-fee'];
+    $studentname = $_POST['student-name'];
+    $studentemail = $_POST['student-email'];
+    $studentcontact = $_POST['student-contact'];
+    $studentaddress = $_POST['address'];
+    $studentdate = $_POST['date'];
+    $studentdept = $_POST['dept-name'];
+    $studentRegNo = "TUK/".rand(000,999)."/".rand(000,999);
 
-    $sql = "INSERT INTO courses(department_id,semester_id,course_code,course_name,credit,description,course_duration,course_fee) VALUES('$depatment','$semester','$coursecode','$coursename','$coursecredit','$coursedescription','$courseduration','$coursefee')";
+
+    $sql = "INSERT INTO students(student_name,email,contact_no,address,year,department_id,student_reg_no) VALUES('$studentname','$studentemail','$studentcontact','$studentaddress','$studentdate','$studentdept','$studentRegNo')";
     $result = mysqli_query($conn,$sql);
     if($result){
-          $_SESSION['status'] = "Course added successfully!!!";
+          $_SESSION['status'] = "Registration done successfully!!!";
          
     }
     
@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script defer src="../scripts/script.js"></script>
+    <script defer src="../scripts/load.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <title>Course allocation system</title>
 </head>
@@ -73,12 +73,17 @@ if(isset($_POST['submit'])){
 
     </div>
     <div class="grid--department main-content-depart">
-        <h1 class="head">Course setup</h1>
+        <h1 class="head">Enroll in course</h1>
         <?php
         if(isset($_SESSION['status'])){
             ?>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
+ <?php echo $_SESSION['status']; ?><br>
+ <strong>Student Registration Number:</strong> <?php echo $studentRegNo;?><br>
+ <strong>Student Name:</strong> <?php echo $studentname;?><br>
+ <strong>Student Email:</strong> <?php echo $studentemail;?><br>
+ <strong>Student Contact:</strong> <?php echo $studentcontact;?><br>
+ <strong>Student Address:</strong> <?php echo $studentaddress;?><br>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
             <?php
@@ -88,44 +93,45 @@ if(isset($_POST['submit'])){
         
         ?>
     <form method="post" action="#">
-        <label for="course-code">Course Code</label><br>
-        <input type="text" name="course-code" id="course-code" placeholder="Type the course code"><br>
-        <label for="course-name">Course Name</label><br>
-        <input type="text" name="course-name" id="course-name" placeholder="Type the course name"><br>
-        <label for="course-credit">Course Credit</label><br>
-        <input type="number" name="course-credit" id="course-credit" placeholder="Type the course credit"><br>
-        <label for="course-description">Course Description</label><br>
-        <textarea name="course-description" id="course-description" cols="40" rows="5" placeholder="Type the course description"></textarea><br>
+    <?php
+       
+       $sql = "SELECT * from students";
+       $result = mysqli_query($conn,$sql); 
+       ?>
+       <label for="student-reg">Student Reg. No</label><br>
+    <select name="student-reg" id="student-reg" onchange="GetDetail(this.value)">
+       <option value="select-department">--Select Student ID--</option>
+       <?php while($row = mysqli_fetch_array($result)):;?>
+       <option value="<?php echo $row['id'];?>"><?php echo $row['student_reg_no'];?></option>
+       <?php endwhile?>
+    </select><br>
+    <label for="name">Name</label><br>
+        <input type="text" name="student-name" id="student-name" placeholder="Type Student name"><br>
+        <label for="Email">Email</label><br>
+        <input type="email" name="student-email" id="student-email" placeholder="Type Student email"><br>
+        <label for="department">Department</label><br>
+        <input type="text" name="student-department" id="student-department" placeholder="Type Student department"><br>
         <?php
        
-        $sql = "SELECT * from departments";
+        $sql = "SELECT * from courses";
         $result = mysqli_query($conn,$sql); 
         ?>
-        <label for="department-name">Department name</label><br>
+        <label for="department-name">Select course</label><br>
      <select name="dept-name">
+        <option value="select-department">--Select course--</option>
         <?php while($row = mysqli_fetch_array($result)):;?>
-        <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
+        <option value="<?php echo $row['id'];?>"><?php echo $row['course_name'];?></option>
         <?php endwhile?>
      </select><br>
-     <label for="semester">Semesters in a calender year</label><br>
-     <select name="semester" id="semester">
-            <option value="semester">--Select Semesters--</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-        </select><br>
-        <label for="course-duration">Course Duration</label><br>
-        <input type="text" name="course-duration" id="course-duration" placeholder="Type the course duration"><br>
-        <label for="course-fee">Course Fee per Semister(ksh)</label><br>
-        <input type="text" name="course-fee" id="course-fee" placeholder="Type the course fee"><br>
         <button name='submit' type='submit'>save</button>
     </form>
     </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 
 </html>

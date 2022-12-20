@@ -1,3 +1,10 @@
+<?php
+session_start();
+include_once("../db-connect.php");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,31 +45,77 @@
     <tr>
       <th scope="col">Category </th>
       <th scope="col">Course Name</th>
-      <th scope="col">Course cost</th>
+      <th scope="col">Course Cost</th>
       <th scope="col">Duration</th>
+      <th>Action</th>
+      
     </tr>
   </thead>
+  <?php
+  $sql = "SELECT * FROM courses";
+  $result = mysqli_query($conn, $sql);
+  $count = mysqli_num_rows($result);
+
+  if($count > 0){
+    while($row = mysqli_fetch_assoc($result)){
+         $id = $row['id'];
+         $coursename = $row['course_name'];
+         $coursecost = $row['course_fee'];
+         $coursecode = $row['course_code'];
+    
+  
+  
+  ?>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td >Larry the Bird</td>
-      <td>visanga</td>
-      <td>@twitter</td>
+      <td><?php echo $row['id'];?></td>
+      <td><?php echo $row['course_name']?></td>
+      <td><?php echo $row['course_fee']?></td>
+      <td><?php echo $row['course_duration']?></td>
     </tr>
   </tbody>
+    <?php
+        }
+    } ?>
 </table>
+
+ <!-- Semester page links -->
+ <nav class="my-4">
+              <ul class="pagination pagination-circle pg-blue mb-0">
+                <li class="page-item disabled">
+                  <a class="page-link">Previous</a>
+                </li>
+                <li class="page-item disabled">
+                  <a class="page-link" aria-label="Next">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <!-- Semester numbers -->
+                <li class="page-item active">
+                  <a class="page-link">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link">3</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link">4</a>
+                </li>
+                <!-- Right Arrow -->
+                <li class="page-item">
+                  <a class="page-link" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link">Next</a>
+                </li>
+              </ul>
+            </nav>
     </main>
     
 </body>
