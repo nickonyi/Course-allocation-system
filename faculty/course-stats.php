@@ -38,7 +38,7 @@ include_once("../db-connect.php");
     </aside>
     <main class="main-content">
         <h1>Courses</h1>
-        <a href="course-setup.php" style="text-decoration:none"class="btn-link">Add course</a>
+       
 
         <table class="table table-bordered">
   <thead>

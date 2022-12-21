@@ -40,7 +40,7 @@ include_once("../db-connect.php");
     </aside>
     <main class="main-content">
         <h1>Student information</h1>
-        <a href="student.php" style="text-decoration:none"class="btn-link">Register Student</a>
+        
 
         <table class="table table-bordered">
   <thead>

@@ -70,25 +70,25 @@ session_start();
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <div class="text">Statistics</div>
+            <a href="department-stats.php"><div class="text">Department Statistics</div></a>
         </div>
         <div class="box grid-content-4">
             <div>
                 <img src="../assets/icons/form.svg" alt="">
             </div>
-            <div class="text">Courses</div>
+            <a href="course-stats.php"><div class="text">Courses Statistics</div></a>
         </div>
         <div class="box grid-content-5">
             <div>
                 <img src="../assets/icons/Vector.svg" alt="">
             </div>
-            <div class="text">Students</div>
+            <a href="student-stats.php"><div class="text">Students Statistics</div></a>
         </div>
         <div class="box grid-content-6">
             <div>
                 <img src="../assets/icons/applic.png" alt="">
             </div>
-            <div class="text">Applications</div>
+            <a href="application-stats.php"><div class="text">Applications Statistics</div></a>
         </div>
     </div>
 </body>
