@@ -3,21 +3,16 @@ include_once("../db-connect.php");
 session_start();
 
 if(isset($_POST['submit'])){
-    $studentname = $_POST['student-name'];
-    $studentemail = $_POST['student-email'];
-    $studentcontact = $_POST['student-contact'];
-    $studentaddress = $_POST['address'];
-    $studentdate = $_POST['date'];
-    $studentdept = $_POST['dept-name'];
-    $studentRegNo = "TUK/".rand(000,999)."/".rand(000,999);
+     $studentRegNo = $_POST['student-reg'];
+     $courseID = $_POST['course-name'];
 
-
-    $sql = "INSERT INTO students(student_name,email,contact_no,address,year,department_id,student_reg_no) VALUES('$studentname','$studentemail','$studentcontact','$studentaddress','$studentdate','$studentdept','$studentRegNo')";
+    $sql = "INSERT INTO enroll_in_courses(student_id,course_id,unassigned_course_id) VALUES('$studentRegNo','$courseID',0)";
     $result = mysqli_query($conn,$sql);
     if($result){
-          $_SESSION['status'] = "Registration done successfully!!!";
+          $_SESSION['status'] = "Course enrolled successfully!!!";
          
     }
+
     
 }
 
@@ -78,12 +73,9 @@ if(isset($_POST['submit'])){
         if(isset($_SESSION['status'])){
             ?>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
- <?php echo $_SESSION['status']; ?><br>
- <strong>Student Registration Number:</strong> <?php echo $studentRegNo;?><br>
- <strong>Student Name:</strong> <?php echo $studentname;?><br>
- <strong>Student Email:</strong> <?php echo $studentemail;?><br>
- <strong>Student Contact:</strong> <?php echo $studentcontact;?><br>
- <strong>Student Address:</strong> <?php echo $studentaddress;?><br>
+    <strong>Hey!</strong><?php echo $_SESSION['status']; ?><br>
+ 
+ 
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
             <?php
@@ -100,7 +92,7 @@ if(isset($_POST['submit'])){
        ?>
        <label for="student-reg">Student Reg. No</label><br>
     <select name="student-reg" id="student-reg" onchange="GetDetail(this.value)">
-       <option value="select-department">--Select Student ID--</option>
+       <option value="select-student-id">--Select Student ID--</option>
        <?php while($row = mysqli_fetch_array($result)):;?>
        <option value="<?php echo $row['id'];?>"><?php echo $row['student_reg_no'];?></option>
        <?php endwhile?>
@@ -116,9 +108,9 @@ if(isset($_POST['submit'])){
         $sql = "SELECT * from courses";
         $result = mysqli_query($conn,$sql); 
         ?>
-        <label for="department-name">Select course</label><br>
-     <select name="dept-name">
-        <option value="select-department">--Select course--</option>
+        <label for="course-name">Select course</label><br>
+     <select name="course-name">
+        <option value="select-course">--Select course--</option>
         <?php while($row = mysqli_fetch_array($result)):;?>
         <option value="<?php echo $row['id'];?>"><?php echo $row['course_name'];?></option>
         <?php endwhile?>

@@ -79,7 +79,7 @@ session_start();
             <div>
                 <img src="../assets/icons/Vector.svg" alt="">
             </div>
-            <a href="lecturer.php">
+            <a class="a-tag" href="lecturer.php">
             <div class="text">
                 Lecturers
             </div>

@@ -43,7 +43,7 @@ include_once("../db-connect.php");
         <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Category </th>
+      <th scope="col">Student Name</th>
       <th scope="col">Course Name</th>
       <th scope="col">Course Cost</th>
       <th scope="col">Duration</th>
@@ -52,26 +52,28 @@ include_once("../db-connect.php");
     </tr>
   </thead>
   <?php
-  $sql = "SELECT * FROM courses";
+  $sql = "SELECT students.student_name, courses.course_name, courses.course_duration,courses.course_fee
+  FROM students
+  INNER JOIN courses ON students.id=courses.id";
   $result = mysqli_query($conn, $sql);
   $count = mysqli_num_rows($result);
 
   if($count > 0){
     while($row = mysqli_fetch_assoc($result)){
-         $id = $row['id'];
+         $studentname = $row['student_name'];
          $coursename = $row['course_name'];
          $coursecost = $row['course_fee'];
-         $coursecode = $row['course_code'];
+         $courseduration = $row['course_duration'];
     
   
   
   ?>
   <tbody>
     <tr>
-      <td><?php echo $row['id'];?></td>
-      <td><?php echo $row['course_name']?></td>
-      <td><?php echo $row['course_fee']?></td>
-      <td><?php echo $row['course_duration']?></td>
+      <td><?php echo $studentname;?></td>
+      <td><?php echo $coursename;?></td>
+      <td><?php echo $coursecost;?></td>
+      <td><?php echo $courseduration;?></td>
     </tr>
   </tbody>
     <?php

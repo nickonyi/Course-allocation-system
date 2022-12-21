@@ -20,7 +20,7 @@ if ($user_id !== "") {
 	// Get the first name
 	$student_email = $row["email"];
 
-    $student_department = $row["department_name"];
+    $student_department = $row["department_name"];  
 
 }
 
