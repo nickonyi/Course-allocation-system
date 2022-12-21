@@ -143,7 +143,7 @@ session_start();
                 <img src="../assets/icons/applic.png" alt="">
             </div>
             <div class="text">
-                Applications
+                Applications Statistics
             </div>
         </div>
     </div>

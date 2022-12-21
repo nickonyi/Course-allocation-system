@@ -25,13 +25,13 @@ include_once("../db-connect.php");
         <div>
         <i class="fa-solid fa-house icon-house"></i>
         </div>
-        <div class="text">Home</div>
+        <a href="index.php"><div class="text">Home</div></a>
         </div-side-container>
         <div class='side-container'>
         <div>
         <i class="fa-solid fa-chart-simple icon-house"></i>
         </div>
-        <div class="text">course stats</div>
+        <a href="course-stats.php"><div class="text">Course stats</div></a>
         </div-side-container>
     
     
