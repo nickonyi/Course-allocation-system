@@ -49,7 +49,7 @@ session_start();
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <div class="text">Student statistics</div>
+            <a href="student-stats.php"><div class="text">Student statistics</div></a>
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>

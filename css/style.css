@@ -17,6 +17,10 @@ body {
     background-color: #1E252B;
 }
 
+.side-bar a {
+    text-decoration: none;
+}
+
 .side-bar-contents {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
