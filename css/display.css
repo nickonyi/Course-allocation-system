@@ -70,3 +70,7 @@ table tr {
     border-collapse: collapse;
     width: 100%;
 }
+
+.side-bar a {
+    text-decoration: none;
+}
