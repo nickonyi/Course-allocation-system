@@ -63,7 +63,8 @@ session_start();
             <div>
                 <img src="../assets/icons/Vector.svg" alt="">
             </div>
-            <div class="text">Lecturer</div>
+            <a href="lecturer-stats.php"><div class="text">Lecturer statistics</div></a>
+            
         </div>
         <div class="box grid-content-3">
             <div>
