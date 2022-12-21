@@ -18,7 +18,7 @@ include_once("../db-connect.php");
     <script defer src="../scripts/script.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script defer src="https://kit.fontawesome.com/522abbd9b9.js" crossorigin="anonymous"></script>
-    <title>Course stats</title>
+    <title>Student stats</title>
 </head>
 <body>
     <aside class="side-bar">

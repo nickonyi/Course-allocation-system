@@ -18,7 +18,7 @@ include_once("../db-connect.php");
     <script defer src="../scripts/script.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script defer src="https://kit.fontawesome.com/522abbd9b9.js" crossorigin="anonymous"></script>
-    <title>Course stats</title>
+    <title>Lecturer stats</title>
 </head>
 <body>
     <aside class="side-bar">
@@ -32,21 +32,21 @@ include_once("../db-connect.php");
         <div>
         <i class="fa-solid fa-chart-simple icon-house"></i>
         </div>
-        <a href="student-stats.php"><div class="text">Student stats</div></a>
+        <a href="student-stats.php"><div class="text">Lecturer stats</div></a>
         
         </div>
     
     
     </aside>
     <main class="main-content">
-        <h1>Student information</h1>
-        <a href="student.php" style="text-decoration:none"class="btn-link">Register Student</a>
+        <h1>Lecturer information</h1>
+        <a href="lecturer.php" style="text-decoration:none"class="btn-link">Register Lecturer</a>
 
         <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Student Name</th>
-      <th scope="col">Department</th>
+      <th scope="col">Lecturer Name</th>
+      <th scope="col">Faculty/Department</th>
       <th scope="col">Courses</th>
       <th scope="col">Lessons</th>
       <th>Action</th>
@@ -54,15 +54,15 @@ include_once("../db-connect.php");
     </tr>
   </thead>
   <?php
-  $sql = "SELECT students.student_name, courses.course_name,courses.credit,departments.department_name
-  FROM students
-  INNER JOIN courses ON students.id=courses.id INNER JOIN departments ON courses.id = departments.id";
+  $sql = "SELECT lecturers.lecturer_name, courses.course_name,courses.credit,departments.department_name
+  FROM lecturers
+  INNER JOIN courses ON lecturers.id=courses.id INNER JOIN departments ON courses.id = departments.id";
   $result = mysqli_query($conn, $sql);
   $count = mysqli_num_rows($result);
 
   if($count > 0){
     while($row = mysqli_fetch_assoc($result)){
-         $studentname = $row['student_name'];
+         $lecturer = $row['lecturer_name'];
          $department = $row['department_name'];
          $coursename = $row['course_name'];
          $coursecredit = $row['credit'];
@@ -72,7 +72,7 @@ include_once("../db-connect.php");
   ?>
   <tbody>
     <tr>
-      <td><?php echo $studentname;?></td>
+      <td><?php echo $lecturer;?></td>
       <td><?php echo $department;?></td>
       <td><?php echo $coursename;?></td>
       <td><?php echo $coursecredit;?></td>
