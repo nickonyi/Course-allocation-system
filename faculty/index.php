@@ -39,15 +39,15 @@ session_start();
             <div>
                 <img src="../assets/icons/pin.svg" alt="">
             </div>
-            <div class="text">Application statistics</div>
+            <a href="application-stats.php"><div class="text">Applications Statistics</div></a>
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <div class="text">Student statistics</div>
+            <a href="student-stats.php"><div class="text">Students Statistics</div></a>
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <div class="text">Lecturer statistics</div>
+            <a href="lecturer-stats.php"><div class="text">Lecturer statistics</div></a>
         </div>
     </div>
 

@@ -49,6 +49,10 @@
         gap: 2rem;
     }
     
+    .main-content a {
+        text-decoration: none;
+    }
+    
     .grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -92,4 +96,8 @@
     .success {
         font-size: 20rem;
         color: rgb(26, 211, 51);
+    }
+    
+    .side-bar a {
+        text-decoration: none;
     }

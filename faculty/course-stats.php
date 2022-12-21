@@ -40,7 +40,7 @@ include_once("../db-connect.php");
         <h1>Courses</h1>
        
 
-        <table class="table table-bordered">
+        <table class="table table-bordered faculty-table">
   <thead>
     <tr>
       <th scope="col">Student Name</th>

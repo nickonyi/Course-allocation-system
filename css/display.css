@@ -74,3 +74,7 @@ table tr {
 .side-bar a {
     text-decoration: none;
 }
+
+.faculty-table {
+    margin-top: 100px;
+}
