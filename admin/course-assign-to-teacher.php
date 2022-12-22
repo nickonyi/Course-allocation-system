@@ -28,9 +28,10 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script defer src="../scripts/course-assign.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
-    <script defer src="../scripts/script.js"></script>
+    <script src="../scripts/course-assign.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../scripts/script.js"></script>
     <title>Course allocation system</title>
 </head>
 
@@ -97,7 +98,8 @@ if(isset($_POST['submit'])){
        ?>
        <label for="department-name">Department name</label><br>
     <select name="dept-name" id="dept-name" onchange="GetDetail(this.value)">
-       <?php while($row = mysqli_fetch_array($result)):;?>
+    <option value="select department">---Select department---</option>   
+    <?php while($row = mysqli_fetch_array($result)):;?>
        <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
        <?php endwhile?>*/
     </select><br>

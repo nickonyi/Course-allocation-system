@@ -35,10 +35,11 @@ function GetDetail(str) {
 
 
                 const option = document.createElement("option");
+                option.setAttribute("id", "lec-man");
                 option.value = myObj[1];
                 option.innerHTML = myObj[0];
 
-
+                $('#lec-man').remove();
                 select.appendChild(option);
 
 

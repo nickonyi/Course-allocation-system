@@ -16,18 +16,14 @@ if ($user_id !== "") {
 
 	while($row = mysqli_fetch_array($result)){
           // Get the first name
-         echo $lecturer_name = $row["lecturer_name"];
-         echo $department_id = $row["department_id"];
-    }
-
-	
-
-	
-
+           echo$lecturer_name[] = $row["lecturer_name"];
+           echo$department_id[] = $row["department_id"];
+    }   
 }
 
 // Store it in a array
 $result = array("$lecturer_name", "$department_id");
+
 
 // Send in JSON encoded form
 echo $myJSON = json_encode($result);
