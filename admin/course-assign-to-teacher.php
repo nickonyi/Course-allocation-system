@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script defer src="../scripts/script.js"></script>
+    <script defer src="../scripts/course-assign.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script defer src="../scripts/script.js"></script>
     <title>Course allocation system</title>
@@ -96,21 +96,15 @@ if(isset($_POST['submit'])){
        $result = mysqli_query($conn,$sql); 
        ?>
        <label for="department-name">Department name</label><br>
-    <select name="dept-name" id="dept-name">
+    <select name="dept-name" id="dept-name" onchange="GetDetail(this.value)">
        <?php while($row = mysqli_fetch_array($result)):;?>
        <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
        <?php endwhile?>*/
     </select><br>
-    <?php
-       
-       $sql = "SELECT * from lecturers";
-       $result = mysqli_query($conn,$sql); 
-       ?>
+   
        <label for="lecturer-name">Lecturer</label><br>
     <select name="lec-name" id="lec-name">
-       <?php while($row = mysqli_fetch_array($result)):;?>
-       <option value="<?php echo $row['id'];?>"><?php echo $row['lecturer_name'];?></option>
-       <?php endwhile?>*/
+        <option value="select lecturer">---Select lecturer---</option>
     </select><br>
         <label for="credit-taken">Credit to be taken</label><br>
         <input type="number" name="credit-taken" id="credit-taken"><br>

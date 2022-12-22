@@ -4,8 +4,9 @@ session_start();
 if(isset($_POST['submit'])){
     $depart_code = $_POST['depart-code'];
     $depart_name = $_POST['depart-name'];
+    $depart_head = $_POST['depart-head'];
 
-    $sql = "INSERT INTO departments SET department_code='$depart_code',department_name='$depart_name'";
+    $sql = "INSERT INTO departments SET department_code='$depart_code',department_name='$depart_name',department_head='$depart_head'";
      $res = mysqli_query($conn,$sql);
      if($res){
         $_SESSION['status'] = "Department added successfully!!!";
@@ -88,6 +89,8 @@ if(isset($_POST['submit'])){
         <input type="text" name="depart-code" id="department-code" placeholder="Type department code"><br>
         <label for="department-name">Department name</label><br>
         <input type="text" name="depart-name" id="department-name" placeholder="Type department name"><br>
+        <label for="department-head">Department Head</label><br>
+        <input type="text" name="depart-head" id="department-head" placeholder="Type department name"><br>
         <button name='submit' type='submit'>save</button>
     </form>
     </div>
