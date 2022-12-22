@@ -14,18 +14,30 @@ if ($user_id !== "") {
     $sql = "SELECT lecturers.lecturer_name,lecturers.department_id FROM lecturers INNER JOIN departments ON lecturers.department_id=departments.id WHERE lecturers.department_id='$user_id'";
     $result = mysqli_query($conn, $sql);
 
-	while($row = mysqli_fetch_array($result)){
+	while($row = mysqli_fetch_assoc($result)){
           // Get the first name
-           echo$lecturer_name[] = $row["lecturer_name"];
-           echo$department_id[] = $row["department_id"];
+            $lecturer_name[] = $row["lecturer_name"];
+           $department_id[] = $row["department_id"];
     }   
 }
 
 // Store it in a array
-$result = array("$lecturer_name", "$department_id");
+     for ($i=0; $i <count($lecturer_name) ; $i++) { 
+        $result = array(
+            'lecturer_name' => $lecturer_name[$i],
+            'department_id' => $department_id[$i]
+        );
+       
+     }
+    
 
+     echo $myJSON = json_encode($result);
+
+
+
+ 
 
 // Send in JSON encoded form
-echo $myJSON = json_encode($result);
+
 
 ?>
