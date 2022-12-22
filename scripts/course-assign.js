@@ -31,23 +31,25 @@ function GetDetail(str) {
                 // received to first name input field
                 console.log(myObj.length);
 
+
                 const select = document.getElementById("lec-name");
+
+
 
                 for (i = 0; i < myObj.length; i++) {
                     const option = document.createElement("option");
                     option.setAttribute("id", "lec-man");
-                    option.value = myObj[i];
+                    option.value = myObj[i].department_id;
                     option.innerHTML = myObj[i].lecturer_name;
 
 
                     select.appendChild(option);
 
-
                 }
-
-
-
-
+                const options = document.querySelectorAll("#lec-man");
+                options.forEach(option => {
+                    select.removeChild(option);
+                });
 
 
             }
@@ -60,4 +62,5 @@ function GetDetail(str) {
         xmlhttp.send();
 
     }
+
 }

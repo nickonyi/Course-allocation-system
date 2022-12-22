@@ -90,7 +90,7 @@ if(isset($_POST['submit'])){
         }
         
         ?>
-    <form method="post">
+    <form method="post" id="myForm">
     <?php
        
        $sql = "SELECT * from departments";
