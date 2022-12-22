@@ -32,16 +32,20 @@ function GetDetail(str) {
                 console.log(myObj.length);
 
                 const select = document.getElementById("lec-name");
+
                 for (i = 0; i < myObj.length; i++) {
                     const option = document.createElement("option");
                     option.setAttribute("id", "lec-man");
                     option.value = myObj[i];
-                    option.innerHTML = myObj[i];
+                    option.innerHTML = myObj[i].lecturer_name;
 
-                    $('#lec-man').remove();
+
                     select.appendChild(option);
 
+
                 }
+
+
 
 
 

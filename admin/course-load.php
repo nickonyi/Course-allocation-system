@@ -16,22 +16,15 @@ if ($user_id !== "") {
 
 	while($row = mysqli_fetch_assoc($result)){
           // Get the first name
-            $lecturer_name[] = $row["lecturer_name"];
-           $department_id[] = $row["department_id"];
+            $rows[] = $row;
     }   
 }
 
 // Store it in a array
-     for ($i=0; $i <count($lecturer_name) ; $i++) { 
-        $result = array(
-            'lecturer_name' => $lecturer_name[$i],
-            'department_id' => $department_id[$i]
-        );
-       
-     }
+ 
     
 
-     echo $myJSON = json_encode($result);
+     echo $myJSON = json_encode($rows);
 
 
 
