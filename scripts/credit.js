@@ -1,11 +1,10 @@
 // onchange event will occur when the user
 // release the key and calls the function
 // assigned to this event
-function GetDetail(str) {
+function GetCredit(str) {
     if (str.length == 0) {
-        document.getElementById("student_name").value = "";
-        document.getElementById("student_email").value = "";
-        document.getElementById("student_department").value = "";
+        document.getElementById("course-credit").value = "";
+
         return;
     } else {
 
@@ -27,26 +26,15 @@ function GetDetail(str) {
                 // string and store this array in
                 // a variable assign the value
                 // received to first name input field
+                document.getElementById("credit-taken").value = myObj[0];
 
 
-                const select = document.getElementById("lec-name");
-                removeOpt();
 
-                for (i = 0; i < myObj.length; i++) {
-                    const option = document.createElement("option");
-                    option.setAttribute("id", "lec-man");
-                    option.value = myObj[i].id;
-                    option.innerHTML = myObj[i].lecturer_name;
-
-
-                    select.appendChild(option);
-
-                }
             }
         };
 
         // xhttp.open("GET", "filename", true);
-        xmlhttp.open("GET", "course-load.php?id=" + str, true);
+        xmlhttp.open("GET", "credit-load.php?id=" + str, true);
 
         // Sends the request to the server
         xmlhttp.send();

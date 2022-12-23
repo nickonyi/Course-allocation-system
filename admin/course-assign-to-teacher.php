@@ -29,9 +29,10 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="../scripts/course-assign.js"></script>
+    <script src="../scripts/credit.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="../scripts/script.js"></script>
+    <script src="../scripts/get-course.js"></script>
     <title>Course allocation system</title>
 </head>
 
@@ -105,7 +106,7 @@ if(isset($_POST['submit'])){
     </select><br>
    
        <label for="lecturer-name">Lecturer</label><br>
-    <select name="lec-name" id="lec-name">
+    <select name="lec-name" id="lec-name" onchange="GetCredit(this.value)">
         <option value="select lecturer">---Select lecturer---</option>
     </select><br>
         <label for="credit-taken">Credit to be taken</label><br>
@@ -116,7 +117,8 @@ if(isset($_POST['submit'])){
        $result = mysqli_query($conn,$sql); 
        ?>
        <label for="course-code">Course code</label><br>
-    <select name="course-code">
+    <select name="course-code" onchange="getCourse(this.value)">
+    <option value="select-credit">--Select course credit--</option>
        <?php while($row = mysqli_fetch_array($result)):;?>
        <option value="<?php echo $row['id'];?>"><?php echo $row['course_code'];?></option>
        <?php endwhile?>
@@ -127,11 +129,7 @@ if(isset($_POST['submit'])){
        $result = mysqli_query($conn,$sql); 
        ?>
        <label for="course-name">Course Name</label><br>
-    <select name="course-name">
-       <?php while($row = mysqli_fetch_array($result)):;?>
-       <option value="<?php echo $row['id'];?>"><?php echo $row['course_name'];?></option>
-       <?php endwhile?>
-    </select><br>
+        <input type="text" name="course-name" id="course-name"><br>
     <label for="course-credit">Course credit</label><br>
         <input type="number" name="course-credit" id="course-credit"><br>
         <button name='submit' type='submit'>save</button>

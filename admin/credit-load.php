@@ -11,20 +11,20 @@ if ($user_id !== "") {
 	// Get corresponding first name and
 	// last name for that user id	
 	
-    $sql = "SELECT lecturers.id,lecturers.lecturer_name,lecturers.department_id FROM lecturers INNER JOIN departments ON lecturers.department_id=departments.id WHERE lecturers.department_id='$user_id'";
+    $sql = "SELECT credit_to_be_taken FROM lecturers WHERE id='$user_id'";
     $result = mysqli_query($conn, $sql);
 
 	while($row = mysqli_fetch_assoc($result)){
           // Get the first name
-            $rows[] = $row;
+            $credit = $row['credit_to_be_taken'];
     }   
 }
 
 // Store it in a array
  
-    
+      $result = array("$credit");
 
-     echo $myJSON = json_encode($rows);
+     echo $myJSON = json_encode($result);
 
 
 
