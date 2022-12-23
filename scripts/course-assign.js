@@ -12,7 +12,6 @@ function GetDetail(str) {
         // Creates a new XMLHttpRequest object
         var xmlhttp = new XMLHttpRequest();
 
-        console.log(xmlhttp);
         xmlhttp.onreadystatechange = function() {
 
             // Defines a function to be called when
@@ -22,19 +21,15 @@ function GetDetail(str) {
 
                 // Typical action to be performed
                 // when the document is ready
-
-                console.log(this.responseText);
                 var myObj = JSON.parse(this.responseText);
                 // Returns the response data as a
                 // string and store this array in
                 // a variable assign the value
                 // received to first name input field
-                console.log(myObj.length);
 
 
                 const select = document.getElementById("lec-name");
-
-
+                removeOpt();
 
                 for (i = 0; i < myObj.length; i++) {
                     const option = document.createElement("option");
@@ -46,12 +41,6 @@ function GetDetail(str) {
                     select.appendChild(option);
 
                 }
-                const options = document.querySelectorAll("#lec-man");
-                options.forEach(option => {
-                    select.removeChild(option);
-                });
-
-
             }
         };
 
@@ -63,4 +52,12 @@ function GetDetail(str) {
 
     }
 
+}
+
+function removeOpt() {
+    const select = document.getElementById("lec-name");
+    const options = document.querySelectorAll("#lec-man");
+    options.forEach(option => {
+        select.removeChild(option);
+    });
 }
