@@ -54,9 +54,7 @@ include_once("../db-connect.php");
     </tr>
   </thead>
   <?php
-  $sql = "SELECT lecturers.lecturer_name, courses.course_name,courses.credit,departments.department_name
-  FROM lecturers
-  INNER JOIN courses ON lecturers.id=courses.id INNER JOIN departments ON courses.id = departments.id";
+  $sql = "SELECT lecturers.lecturer_name, courses.course_name,courses.credit,departments.department_name,course_assign_to_teachers.department_id,course_assign_to_teachers.teacher_id,course_assign_to_teachers.course_id FROM lecturers INNER JOIN course_assign_to_teachers ON lecturers.id=course_assign_to_teachers.teacher_id INNER JOIN courses ON course_assign_to_teachers.course_id = courses.id INNER JOIN departments ON courses.department_id = departments.id";
   $result = mysqli_query($conn, $sql);
   $count = mysqli_num_rows($result);
 
