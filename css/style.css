@@ -8,7 +8,7 @@ body {
     display: grid;
     grid-template-columns: 250px 3fr;
     grid-template-rows: 70px repeat(4, 1fr);
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .side-bar {
