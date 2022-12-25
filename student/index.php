@@ -10,7 +10,9 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/stude-lec.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script defer src="./scripts/script.js"></script>
+    <script defer src="https://kit.fontawesome.com/522abbd9b9.js" crossorigin="anonymous"></script>
     <title>Course allocation system</title>
 </head>
 
@@ -28,7 +30,7 @@ session_start();
             <div>
                 <img src="../assets/icons/icons8-dashboard-layout-48.png" alt="">
             </div>
-            <div class="text">T.U.K faculty</div>
+            <div class="text">T.U.K Student</div>
         </div>
         <div class="side-bar-contents">
             <div>
@@ -37,9 +39,9 @@ session_start();
             <div class="text">Dashboard</div>
 
             <div>
-                <img src="../assets/icons/pin.svg" alt="">
+                <img src="../assets/icons/form.svg" alt="">
             </div>
-            <a href="application-stats.php"><div class="text">Applications Statistics</div></a>
+            <a href="form.php"><div class="text">Forms</div></a>
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
@@ -52,43 +54,27 @@ session_start();
     </div>
 
     </div>
-    <div class="grid main-content">
-        <div class="box grid-content-1">
+    <div class="flex main-content">
+        <div class="flex-box">
+        <div class="box flex-content-1">
             <div>
                 <img src="../assets/icons/home.svg" alt="">
             </div>
             <div class="text">Dashboard</div>
         </div>
-        <div class="box grid-content-2">
+        <div class="box flex-content-2">
             <div>
                 <img src="../assets/icons/Vector.svg" alt="">
             </div>
-            <a href="lecturer-stats.php"><div class="text">Lecturer statistics</div></a>
+            <a href="lecturer-stats.php"><div class="text">Profile</div></a>
             
         </div>
-        <div class="box grid-content-3">
+        <div class="box flex-content-3">
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <a href="department-stats.php"><div class="text">Department Statistics</div></a>
-        </div>
-        <div class="box grid-content-4">
-            <div>
-                <img src="../assets/icons/form.svg" alt="">
-            </div>
-            <a href="course-stats.php"><div class="text">Courses Statistics</div></a>
-        </div>
-        <div class="box grid-content-5">
-            <div>
-                <img src="../assets/icons/Vector.svg" alt="">
-            </div>
-            <a href="student-stats.php"><div class="text">Students Statistics</div></a>
-        </div>
-        <div class="box grid-content-6">
-            <div>
-                <img src="../assets/icons/applic.png" alt="">
-            </div>
-            <a href="application-stats.php"><div class="text">Applications Statistics</div></a>
+            <a href="department-stats.php"><div class="text">Schedule</div></a>
+        </div>  
         </div>
     </div>
 </body>
