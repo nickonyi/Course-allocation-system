@@ -55,8 +55,11 @@ session_start();
             </div>
             <a href="lecturer-stats.php"><div class="text">Lecturer statistics</div></a>
             <div>
+                <img src="../assets/icons/stats.svg" alt="">
+            </div>
+            <a href="department-stats.php"><div class="text">Department statistics</div></a>
+            <div>
             <i class="fa-solid fa-pen-to-square" style="color:white; font-size:50px;"></i>
-            
             </div>
             <a href="enroll.php"><div class="text">Enroll in course</div></a>
         </div>
