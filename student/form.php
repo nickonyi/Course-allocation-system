@@ -22,11 +22,6 @@ if(isset($_POST['submit'])){
     if($result){
         $_SESSION['status'] = "Personal details inserted successfully!!!!";
     }
-    
-
-
-
-
 
 }
 
@@ -37,7 +32,7 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/stude-lec.css">
+    <link rel="stylesheet" href="../css/form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -47,6 +42,7 @@ if(isset($_POST['submit'])){
 </head>
 <body class="body-form">
        <p class="heading">Student form 32a</p>
+       <div class="wrapper">
        <?php
         if(isset($_SESSION['status'])){
             ?>
@@ -62,7 +58,6 @@ if(isset($_POST['submit'])){
         }
         
         ?>
-       <div class="wrapper">
             <h1 class="person-dets">Person details</h1>
             <div class="form">
                 <form method="post" action="#">

@@ -1,3 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form {
+    margin-top: 10%;
+}
+
+.flex-form {
+    display: flex;
+    gap: 5px;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 15px;
+    row-gap: 15px;
+    position: relative;
+    left: -10px;
+    width: 200px;
+}
+
+
 /*---------------------------*/
 
 
@@ -6,18 +33,17 @@
 
 /*----------------------*/
 
-body {
+.body-form {
     background: rgb(135, 206, 235, 0.3);
     font-family: 'Oswald', sans-serif;
-    min-height: 800px;
-    width: 200px;
+    min-height: 1000px;
     overflow: auto;
 }
 
-.container {
+.wrapper {
     border: 3px solid rgb(54, 54, 216, 0.3);
-    height: 600px;
-    width: 100px;
+    height: 650px;
+    width: 750px;
     justify-content: center;
     row-gap: 2rem;
     margin-block: 100px;
@@ -81,20 +107,4 @@ form select {
     background: rgb(55, 124, 156);
     border: none;
     cursor: pointer;
-}
-
-flex-form {
-    display: flex;
-    gap: 5px;
-}
-
-.grid-form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    column-gap: 15px;
-    row-gap: 15px;
-    position: relative;
-    left: -10px;
-    width: 200px;
 }
