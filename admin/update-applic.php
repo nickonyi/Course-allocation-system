@@ -95,11 +95,11 @@ if (isset($_GET['id'])){
         ?>
     <form method="post" action="#">
         <label for="student-name">Student name</label><br>
-       <input type="text" name="student-name" id="student-name"  placeholder="Type Student name" value="<?php echo $firstname.' '.$lastname;?>"><br>
+       <input type="text" name="student-name" id="student-name"  placeholder="Type Student name" value="<?php echo $firstname.' '.$lastname;?>" readonly><br>
         <label for="course-category">Course Category</label><br>
-        <input type="text" name="course-category" id="course-category" placeholder="course category" value="<?php echo $coursecategory;?>"><br>
+        <input type="text" name="course-category" id="course-category" placeholder="course category" value="<?php echo $coursecategory;?>" readonly><br>
         <label for="course name">Course Applied</label><br>
-        <input type="text"  name="course-name" id="course-name" placeholder="Type Student contact" value="<?php echo $coursename;?>"><br>
+        <input type="text"  name="course-name" id="course-name" placeholder="Type Student contact" value="<?php echo $coursename;?>" readonly><br>
         <label for="status">Status</label><br>
      <select name="status">
         <option <?php if($status=="pending"){echo "selected";}?> value="pending">Pending</option>
@@ -113,3 +113,20 @@ if (isset($_GET['id'])){
 </body>
 
 </html>
+<?php
+if(isset($_POST['submit'])){
+    echo $status = $_POST['status'];
+    $sql2 = "UPDATE student_applications SET status = '$status' WHERE id ='$id'";
+    $result2 = mysqli_query($conn,$sql2);
+
+    if($result2){
+        $_SESSION['update'] = "<div class='success'>Application updated successfully!!!</div>";
+        header('location:'.SITEURL.'admin/application-stats.php');
+    } else {
+        $_SESSION['update'] = "<div class='error'>Application not updated,something wrong happened!!!</div>";
+        header('location:'.SITEURL.'application-stats.php');
+    }
+}
+
+
+?>

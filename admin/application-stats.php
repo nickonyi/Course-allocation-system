@@ -38,6 +38,13 @@ include_once("../db-connect.php");
     </aside>
     <main class="main-content">
         <h1>Applications</h1>
+        <?php
+        if(isset($_SESSION['update'])){
+            echo $_SESSION['update'];
+            unset($_SESSION['update']);
+        }
+        
+        ?>
         <a href="form.php" style="text-decoration:none"class="btn-link">Add Form</a>
 
         <table class="table table-bordered">
@@ -81,7 +88,7 @@ include_once("../db-connect.php");
     } else if ($coursestatus  == "view"){
         echo "<label style='color:green'>view</label>";
     } else if ($coursestatus  == "cancelled"){
-        echo "<label style='color:green'>red</label>";
+        echo "<label style='color:red'>cancelled</label>";
     }
       ?>
     </td>

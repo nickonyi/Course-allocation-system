@@ -87,3 +87,13 @@ table tr {
     color: #fff;
     border-radius: 5px;
 }
+
+.success {
+    color: rgb(19, 161, 62);
+    font-size: 1.5rem;
+}
+
+.error {
+    color: rgb(161, 19, 62);
+    font-size: 1.5rem;
+}
