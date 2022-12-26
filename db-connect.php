@@ -1,5 +1,6 @@
 <?php
 $dbhost = "localhost";
+define('SITEURL','http://localhost/Course-allocation-system/');
 $dbuser = "root";
 $dbpassword = "";
 $dbname = "course_allocation_system_db";

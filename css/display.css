@@ -78,3 +78,12 @@ table tr {
 .faculty-table {
     margin-top: 100px;
 }
+
+.update-form {
+    text-decoration: none;
+    background: rgb(10, 168, 89);
+    padding-inline: 20px;
+    padding-block: 7px;
+    color: #fff;
+    border-radius: 5px;
+}

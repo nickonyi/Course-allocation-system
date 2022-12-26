@@ -45,7 +45,7 @@ session_start();
             <div>
                 <img src="../assets/icons/pin.svg" alt="">
             </div>
-            <div class="text">Application statistics</div>
+            <a href="application-stats.php"><div class="text">Application statistics</div></a>
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
@@ -145,9 +145,12 @@ session_start();
             <div>
                 <img src="../assets/icons/applic.png" alt="">
             </div>
+            <a href="application-stats.php">
             <div class="text">
                 Applications Statistics
             </div>
+            </a>
+           
         </div>
     </div>
 </body>

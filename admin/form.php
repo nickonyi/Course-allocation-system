@@ -15,8 +15,9 @@ if(isset($_POST['submit'])){
      $gender = $_POST['gender'];
      $coursecateg = $_POST['course-category'];
      $courseid = $_POST['course-id'];
+     $status = "pending";
 
-    $sql = "INSERT INTO student_applications(first_name,last_name,date,phone_no,email,city,county,p_box,location,gender,course_category,course_id) VALUES('$firstname','$lastname','$date','$contact','$email','$city','$county','$pbox','$location','$gender','$coursecateg','$courseid')";
+    $sql = "INSERT INTO student_applications(first_name,last_name,date,phone_no,email,city,county,p_box,location,gender,course_category,course_id,status) VALUES('$firstname','$lastname','$date','$contact','$email','$city','$county','$pbox','$location','$gender','$coursecateg','$courseid','$status')";
     $result = mysqli_query($conn,$sql);
 
     if($result){
