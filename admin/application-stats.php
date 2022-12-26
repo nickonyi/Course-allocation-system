@@ -52,13 +52,14 @@ include_once("../db-connect.php");
     </tr>
   </thead>
   <?php
-  $sql = "SELECT student_applications.first_name,student_applications.last_name,student_applications.course_category,student_applications.status,courses.course_name FROM student_applications INNER JOIN courses on student_applications.course_id =courses.id";
+  $sql = "SELECT student_applications.id,student_applications.first_name,student_applications.last_name,student_applications.course_category,student_applications.status,courses.course_name FROM student_applications INNER JOIN courses on student_applications.course_id =courses.id";
   $result = mysqli_query($conn, $sql);
   $count = mysqli_num_rows($result);
 
   if($count > 0){
     while($row = mysqli_fetch_assoc($result)){
-         $firstName = $row['first_name'];
+        $id = $row['id']; 
+        $firstName = $row['first_name'];
          $lastName = $row['last_name'];
          $coursename = $row['course_name'];
          $coursestatus = $row['status'];
@@ -74,15 +75,17 @@ include_once("../db-connect.php");
       <td><?php echo $coursename;?></td>
       <td><?php 
      if($coursestatus == "pending"){
-        echo "<label style='color:red'>pending</label>";
+        echo "<label style='color:orange'>pending</label>";
     } else if ($coursestatus  == "approved"){
         echo "<label style='color:blue'>approved</label>";
     } else if ($coursestatus  == "view"){
         echo "<label style='color:green'>view</label>";
-    } 
+    } else if ($coursestatus  == "cancelled"){
+        echo "<label style='color:green'>red</label>";
+    }
       ?>
     </td>
-    <td><a class="update-form" href="<?php  ?>">Update</a></td>
+    <td><a class="update-form" href="<?php echo SITEURL;?>admin/update-applic.php?id=<?php echo $id;?>">Update</a></td>
     </tr>
   </tbody>
     <?php
