@@ -97,3 +97,33 @@ table tr {
     color: rgb(161, 19, 62);
     font-size: 1.5rem;
 }
+
+.t-black {
+    background-color: rgb(71, 69, 69);
+    color: #fff;
+}
+
+.label-box {
+    position: relative;
+    top: 100px;
+    left: 70px;
+}
+
+#dept-name {
+    height: 40px;
+    width: 400px;
+    margin-top: 10px;
+    border: 2px solid rgb(121, 119, 119);
+    border-radius: 10px;
+}
+
+#submit {
+    background-color: rgb(20, 136, 172);
+    color: #fff;
+    padding-block: 5px;
+    padding-inline: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    border: none;
+}
