@@ -33,6 +33,7 @@ if(isset($_POST['submit'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="../scripts/get-course.js"></script>
+    <script defer src="https://kit.fontawesome.com/522abbd9b9.js" crossorigin="anonymous"></script>
     <title>Course allocation system</title>
 </head>
 
@@ -48,7 +49,8 @@ if(isset($_POST['submit'])){
             <div>
                 <img src="../assets/icons/icons8-dashboard-layout-48.png" alt="">
             </div>
-            <div class="text">T.U.K admin</div>
+            
+            <a href="index.php"><div class="text">T.U.K admin</div></a>
         </div>
         <div class="side-bar-contents">
             <div>
