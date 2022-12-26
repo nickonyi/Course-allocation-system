@@ -73,7 +73,7 @@ session_start();
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <a href="department-stats.php"><div class="text">Schedule</div></a>
+            <a href="schedule.php"><div class="text">Schedule</div></a>
         </div>  
         </div>
     </div>

@@ -3,23 +3,23 @@ include_once("../db-connect.php");
 session_start();
 
 if(isset($_POST['submit'])){
-    $studentname = $_POST['student-name'];
-    $studentemail = $_POST['student-email'];
-    $studentcontact = $_POST['student-contact'];
-    $studentaddress = $_POST['address'];
-    $studentdate = $_POST['date'];
-    $studentdept = $_POST['dept-name'];
-    $studentRegNo = "TUK/".rand(000,999)."/".rand(000,999);
+    $department = $_POST['dept-name'];
+    $course = $_POST['course-name'];
+    $room = $_POST['room'];
+    $day = $_POST['day'];
+    $from = $_POST['from'];
+    $to = $_POST['to'];
+    $status = 1;
 
-
-    $sql = "INSERT INTO students(student_name,email,contact_no,address,year,department_id,student_reg_no) VALUES('$studentname','$studentemail','$studentcontact','$studentaddress','$studentdate','$studentdept','$studentRegNo')";
+    $sql = "INSERT INTO `allocate_classrooms` ( `department_id`, `course_id`, `room_id`, `day`, `from`, `to`, `status`) VALUES ( '$department', '$course', '$room', '$day', '$from', '$to', '$status' )";
     $result = mysqli_query($conn,$sql);
+
     if($result){
-          $_SESSION['status'] = "Registration done successfully!!!";
-         
+        $_SESSION['status'] = "Classroom allocated successfully!!!";
     }
-    
 }
+    
+
 
 
 ?>
@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-<div class="header"></div>
+    <div class="header"></div>
     <div class="side-bar">
         <div class="side-bar-header">
             <div>
@@ -70,17 +70,12 @@ if(isset($_POST['submit'])){
 
     </div>
     <div class="grid--department main-content-depart">
-        <h1 class="head">Student setup</h1>
+        <h1 class="head">Allocate classroom</h1>
         <?php
         if(isset($_SESSION['status'])){
             ?>
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
- <?php echo $_SESSION['status']; ?><br>
- <strong>Student Registration Number:</strong> <?php echo $studentRegNo;?><br>
- <strong>Student Name:</strong> <?php echo $studentname;?><br>
- <strong>Student Email:</strong> <?php echo $studentemail;?><br>
- <strong>Student Contact:</strong> <?php echo $studentcontact;?><br>
- <strong>Student Address:</strong> <?php echo $studentaddress;?><br>
+  <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
             <?php
@@ -90,16 +85,6 @@ if(isset($_POST['submit'])){
         
         ?>
     <form method="post" action="#">
-        <label for="student-name">Student name</label><br>
-       <input type="text" name="student-name" id="student-name" placeholder="Type Student name"><br>
-        <label for="Email">Email</label><br>
-        <input type="email" name="student-email" id="student-email" placeholder="Type Student email"><br>
-        <label for="Contact No">Contact No</label><br>
-        <input type="number" min="8"  name="student-contact" id="student-contact" placeholder="Type Student contact"><br>
-        <label for="Address">Address</label><br>
-        <textarea name="address" id="address" cols="40" rows="5"></textarea><br>
-        <label for="date">Date</label><br>
-        <input type="date" name="date" id="date"><br>
         <?php
        
         $sql = "SELECT * from departments";
@@ -112,6 +97,42 @@ if(isset($_POST['submit'])){
         <option value="<?php echo $row['id'];?>"><?php echo $row['department_name'];?></option>
         <?php endwhile?>
      </select><br>
+     <?php
+       
+        $sql = "SELECT * from courses";
+        $result = mysqli_query($conn,$sql); 
+        ?>
+        <label for="course-name">Course name</label><br>
+     <select name="course-name">
+        <option value="select-department">--Select course--</option>
+        <?php while($row = mysqli_fetch_array($result)):;?>
+        <option value="<?php echo $row['id'];?>"><?php echo $row['course_name'];?></option>
+        <?php endwhile?>
+     </select><br>
+     <label for="room-no">Room No</label><br>
+     <select name="room" id="room">
+        <option value="select-room">--- Select room ---</option>
+        <option value="1">101</option>
+        <option value="2">102</option>
+        <option value="3">103</option>
+        <option value="4">104</option>
+        <option value="5">105</option>
+     </select><br>
+     <label for="day">Day</label><br>
+     <select name="day" id="day">
+        <option value="select-room">--- Select room ---</option>
+        <option value="monday">Monday</option>
+        <option value="tuesday">Tuesday</option>
+        <option value="wednesday">Wednesday</option>
+        <option value="thursday">Thursday</option>
+        <option value="friday">Friday</option>
+        <option value="saturday">Saturday</option>
+        <option value="sunday">Sunday</option>
+     </select><br>
+     <label for="from">From</label><br>
+     <input type="time" name="from" id="from"><br>
+     <label for="to">To</label><br>
+     <input type="time" name="to" id="to"><br>
         <button name='submit' type='submit'>save</button>
     </form>
     </div>

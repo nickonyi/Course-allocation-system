@@ -62,6 +62,11 @@ session_start();
             <i class="fa-solid fa-pen-to-square" style="color:white; font-size:50px;"></i>
             </div>
             <a href="enroll.php"><div class="text">Enroll in course</div></a>
+            <div>
+            <i class="fa-solid fa-pen-to-square" style="color:white; font-size:50px;"></i>
+            </div>
+            <a href="class.php"><div class="text">Allocate classroom</div></a>
+
         </div>
     </div>
 

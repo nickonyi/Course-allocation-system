@@ -3,19 +3,19 @@ include_once("../db-connect.php");
 session_start();
 
 if(isset($_POST['submit'])){
-     echo $firstname = $_POST['f-name'];
-     echo $lastname = $_POST['l-name'];
-     echo $date = $_POST['birth-date'];
-     echo $contact = $_POST['contact'];
-     echo $email = $_POST['email'];
-     echo $city = $_POST['city'];
-     echo $county = $_POST['county'];
-     echo $pbox = $_POST['p-box'];
-     echo $location = $_POST['location'];
-     echo $gender = $_POST['gender'];
-     echo $coursecateg = $_POST['course-category'];
-     echo $courseid = $_POST['course-id'];
-     echo $status = "pending";
+      $firstname = $_POST['f-name'];
+      $lastname = $_POST['l-name'];
+      $date = $_POST['birth-date'];
+      $contact = $_POST['contact'];
+      $email = $_POST['email'];
+      $city = $_POST['city'];
+      $county = $_POST['county'];
+      $pbox = $_POST['p-box'];
+      $location = $_POST['location'];
+      $gender = $_POST['gender'];
+      $coursecateg = $_POST['course-category'];
+      $courseid = $_POST['course-id'];
+      $status = "pending";
 
     $sql = "INSERT INTO student_applications(first_name,last_name,date,phone_no,email,city,county,p_box,location,gender,course_category,course_id,status) VALUES('$firstname','$lastname','$date','$contact','$email','$city','$county','$pbox','$location','$gender','$coursecateg','$courseid','$status')";
     $result = mysqli_query($conn,$sql);
