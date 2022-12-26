@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
         <table class="table table-bordered">
   <thead class='t-black'>
     <tr>
-      <th scope="col">No.</th>
+      
       <th scope="col">Course Code</th>
       <th scope="col">Course Name</th>
       <th scope="col">Schedule info</th>
@@ -91,12 +91,11 @@ if(isset($_POST['submit'])){
   <?php
  if(isset($_POST['submit'])){
     $dept = $_POST['dept-name'];
-    $sql = "SELECT courses.course_code,courses.course_name,allocate_classrooms.id,allocate_classrooms.room_id,allocate_classrooms.day,allocate_classrooms.from,allocate_classrooms.to from courses INNER JOIN allocate_classrooms on courses.id = allocate_classrooms.course_id INNER JOIN departments on courses.department_id = departments.id WHERE departments.id = '$dept'";
+    $sql = "SELECT courses.id,courses.course_code,courses.course_name,allocate_classrooms.id,allocate_classrooms.room_id,allocate_classrooms.day,allocate_classrooms.from,allocate_classrooms.to from courses INNER JOIN allocate_classrooms on courses.id = allocate_classrooms.course_id INNER JOIN departments on courses.department_id = departments.id WHERE departments.id = '$dept'";
       $result = mysqli_query($conn,$sql);
       $count = mysqli_num_rows($result);
-      if ($count == 1){
+      if ($count > 0){
           while($row = mysqli_fetch_assoc($result)){
-              $id = 1;  
               $course_code = $row['course_code'];
               $course_name = $row['course_name'];
               $room_id = $row['room_id'];
@@ -108,7 +107,7 @@ if(isset($_POST['submit'])){
   ?>
   <tbody>
     <tr>
-      <td><?php echo $id;?></td>
+      
       <td><?php echo $course_code;?></td>
       <td><?php echo $course_name;?></td>
       <td><?php echo "Room No:10".$room_id.",".$day.",".$from."-".$to;?></td>
