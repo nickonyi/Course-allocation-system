@@ -22,8 +22,11 @@ session_start();
         if(isset($_SESSION["login"])){
             echo $_SESSION['login'];
             unset($_SESSION["login"]);
+            echo  $_SESSION['username'];
+            unset ($_SESSION['username']);
         }
         ?>
+        <a href="../logout.php" class="logout">Logout</a>
     </div>
     <div class="side-bar">
         <div class="side-bar-header">

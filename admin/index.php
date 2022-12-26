@@ -25,7 +25,10 @@ session_start();
             echo $_SESSION['login'];
             
         }
-    ?></div>
+    ?>
+<a href="../logout.php" class="logout">Logout</a>    
+
+</div>
     <div class="side-bar">
         <div class="side-bar-header">
             <div>

@@ -127,3 +127,13 @@ table tr {
     font-size: 1.1rem;
     border: none;
 }
+
+.logout {
+    position: absolute;
+    right: 20px;
+    text-decoration: none;
+    background-color: blue;
+    padding-inline: 15px;
+    padding-block: 5px;
+    color: #fff;
+}
