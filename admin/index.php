@@ -25,7 +25,10 @@ session_start();
             echo $_SESSION['login'];
             
         }
-    ?></div>
+    ?>
+<a href="../logout.php" class="logout">Logout</a>    
+
+</div>
     <div class="side-bar">
         <div class="side-bar-header">
             <div>
@@ -37,11 +40,7 @@ session_start();
             <div>
                 <img src="../assets/icons/dashboard-solid-48.png" alt="">
             </div>
-            <div class="text">Dashboard</div>
-            <div>
-                <img src="../assets/icons/form.svg" alt="">
-            </div>
-            <div class="text">Forms</div>
+            <a href="index.php"><div class="text">Dashboard</div></a>
             <div>
                 <img src="../assets/icons/pin.svg" alt="">
             </div>
@@ -76,7 +75,7 @@ session_start();
             <div>
                 <img src="../assets/icons/home.svg" alt="">
             </div>
-            <a href="dashboard.php">
+            <a href="index.php">
             <div class="text">
                 Dashboard
             </div>

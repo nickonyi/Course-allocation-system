@@ -26,6 +26,7 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script defer src="../scripts/script.js"></script>
+    <script defer src="https://kit.fontawesome.com/522abbd9b9.js" crossorigin="anonymous"></script>
     <title>Course allocation system</title>
 </head>
 
@@ -36,35 +37,43 @@ if(isset($_POST['submit'])){
    unset($_SESSION['success']);
 }
     ?></div>
-    <div class="side-bar">
+   <div class="side-bar">
         <div class="side-bar-header">
             <div>
                 <img src="../assets/icons/icons8-dashboard-layout-48.png" alt="">
             </div>
-            <a href="./index.php"><div class="text">T.U.K admin</div></a>
-            
+            <div class="text">T.U.K admin</div>
         </div>
         <div class="side-bar-contents">
             <div>
                 <img src="../assets/icons/dashboard-solid-48.png" alt="">
             </div>
-            <div class="text">Dashboard</div>
-            <div>
-                <img src="../assets/icons/form.svg" alt="">
-            </div>
-            <div class="text">Forms</div>
+            <a href="index.php"><div class="text">Dashboard</div></a>
             <div>
                 <img src="../assets/icons/pin.svg" alt="">
             </div>
-            <div class="text">Application statistics</div>
+            <a href="application-stats.php"><div class="text">Application statistics</div></a>
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <div class="text">Student statistics</div>
+            <a href="student-stats.php"><div class="text">Student statistics</div></a>
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <div class="text">Lecturer statistics</div>
+            <a href="lecturer-stats.php"><div class="text">Lecturer statistics</div></a>
+            <div>
+                <img src="../assets/icons/stats.svg" alt="">
+            </div>
+            <a href="department-stats.php"><div class="text">Department statistics</div></a>
+            <div>
+            <i class="fa-solid fa-pen-to-square" style="color:white; font-size:50px;"></i>
+            </div>
+            <a href="enroll.php"><div class="text">Enroll in course</div></a>
+            <div>
+            <i class="fa-solid fa-pen-to-square" style="color:white; font-size:50px;"></i>
+            </div>
+            <a href="class.php"><div class="text">Allocate classroom</div></a>
+
         </div>
     </div>
 

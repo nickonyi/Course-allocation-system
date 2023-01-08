@@ -22,8 +22,11 @@ session_start();
         if(isset($_SESSION["login"])){
             echo $_SESSION['login'];
             unset($_SESSION["login"]);
+            echo  $_SESSION['username'];
+            unset ($_SESSION['username']);
         }
         ?>
+        <a href="../logout.php" class="logout">Logout</a>
     </div>
     <div class="side-bar">
         <div class="side-bar-header">
@@ -36,7 +39,8 @@ session_start();
             <div>
                 <img src="../assets/icons/dashboard-solid-48.png" alt="">
             </div>
-            <div class="text">Dashboard</div>
+            <a href="index.php"> <div class="text">Dashboard</div></a>
+           
 
             <div>
                 <img src="../assets/icons/form.svg" alt="">
@@ -45,11 +49,7 @@ session_start();
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
-            <a href="student-stats.php"><div class="text">Students Statistics</div></a>
-            <div>
-                <img src="../assets/icons/stats.svg" alt="">
-            </div>
-            <a href="lecturer-stats.php"><div class="text">Lecturer statistics</div></a>
+            <a href="schedule.php"><div class="text">Schedule</div></a>
         </div>
     </div>
 
@@ -60,14 +60,7 @@ session_start();
             <div>
                 <img src="../assets/icons/home.svg" alt="">
             </div>
-            <div class="text">Dashboard</div>
-        </div>
-        <div class="box flex-content-2">
-            <div>
-                <img src="../assets/icons/Vector.svg" alt="">
-            </div>
-            <a href="lecturer-stats.php"><div class="text">Profile</div></a>
-            
+            <a href="index.php"> <div class="text">Dashboard</div></a>
         </div>
         <div class="box flex-content-3">
             <div>

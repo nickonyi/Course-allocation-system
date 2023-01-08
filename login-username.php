@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
     $result = mysqli_query($conn,$sql);
     $count = mysqli_num_rows($result);
     $row = mysqli_fetch_assoc($result);
-    if($count > 0){
+    if($count === 1){
         if($row['password'] == $pasword){
             session_start();
             $_SESSION['username'] = $username;

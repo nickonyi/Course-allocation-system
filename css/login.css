@@ -1,50 +1,118 @@
-body {
-    background-image: url("../assets/img/bckground.JPG");
-    background-repeat: no-repeat;
+body{
+    background-image: url("../assets/img/wavy.jpg");
     background-size: cover;
-    background-color: rgb(255, 255, 255);
-    color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-body .container {
-    opacity: 100%;
-    min-height: 100vh;
+span{
+    color: #0e0463;
+    font-size: 35px;
     display: flex;
     justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+.box{
+    display: flex;
     align-items: center;
+    min-height: 80vh;
+    position: absolute;
+    left: 1080px;
+}
+
+.container{
+    width: 430px;
+    display: flex;
     flex-direction: column;
-    float: right;
-    padding-right: 100px;
-    padding-left: 600px;
+    padding: 0 15px 0 15px;
 }
 
-body .container form {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    width: 450PX;
-    border-radius: 15px 50px 30px;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.input-fld{
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
 }
 
-body .container .form-control {
-    background-color: rgb(199, 231, 248);
-    color: black;
-    opacity: 90%;
+
+.mb-3{
+    
+        height: 45px;
+        outline: none;
+        border-radius: 25px;
+        color: rgb(0, 50, 143);
+        padding: 0 0 0 45px;
+        font-size: 19px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: 100;
+        background: rgba(255, 255, 255, 0.1);
+    
 }
 
-body .container .form-select {
-    background-color: rgb(199, 231, 248);
-    color: black;
-    opacity: 90%;
-    padding: 8px;
-    margin-bottom: 10px;
+button{
+    border: none;
+    border-radius: 30px;
+    height: 45px;
+    outline: none;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: .3s;
+    font-size: 19px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-body .container .form-text {
-    color: rgb(34, 33, 33);
+button:hover{
+    box-shadow: 1px 5px 7px 7px rgba(3, 3, 71, 0.2);
 }
 
-.success {
-    color: rgb(37, 168, 37);
-    font-size: 3rem;
+.logoname{
+    /* Mind Hub */
+
+    position: absolute;
+    width: 500px;
+    height: 97px;
+    left: 440px;
+    top: 260px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 80px;
+    line-height: 97px;
+/* identical to box height */
+
+color: #0e0463;
 }
+
+.name{
+    /* COURSE ALLOCATION SYSTEM */
+
+    position: absolute;
+    width: 1000px;
+    height: 48px;
+    left: 250px;
+    top: 420px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    
+    color: #0e0463;
+
+}
+
+img{
+    padding: 5px;
+    width: 150px;
+    position: absolute;
+width: 150px;
+height: 150px;
+left: 250px;
+top: 262px;
+}
+

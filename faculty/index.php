@@ -22,19 +22,22 @@ session_start();
             unset($_SESSION["login"]);
         }
         ?>
+
+<a href="../logout.php" class="logout">Logout</a>   
     </div>
     <div class="side-bar">
         <div class="side-bar-header">
             <div>
                 <img src="../assets/icons/icons8-dashboard-layout-48.png" alt="">
             </div>
-            <div class="text">T.U.K faculty</div>
+            <a href="index.php"><div class="text">T.U.K faculty</div></a>
+           
         </div>
         <div class="side-bar-contents">
             <div>
                 <img src="../assets/icons/dashboard-solid-48.png" alt="">
             </div>
-            <div class="text">Dashboard</div>
+            <a href="index.php"><div class="text">T.U.K faculty</div></a>
 
             <div>
                 <img src="../assets/icons/pin.svg" alt="">
