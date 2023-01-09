@@ -24,6 +24,7 @@ session_start();
             unset($_SESSION["login"]);
         }
         ?>
+        <a href="../logout.php" class="logout">Logout</a>
     </div>
     <div class="side-bar">
         <div class="side-bar-header">

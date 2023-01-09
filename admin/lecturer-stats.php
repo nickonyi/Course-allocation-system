@@ -32,7 +32,7 @@ include_once("../db-connect.php");
         <div>
         <i class="fa-solid fa-chart-simple icon-house"></i>
         </div>
-        <a href="student-stats.php"><div class="text">Lecturer stats</div></a>
+        <a href="lecturer-stats.php"><div class="text">Lecturer stats</div></a>
         
         </div>
     

@@ -40,12 +40,6 @@ session_start();
                 <img src="../assets/icons/dashboard-solid-48.png" alt="">
             </div>
             <a href="index.php"> <div class="text">Dashboard</div></a>
-           
-
-            <div>
-                <img src="../assets/icons/form.svg" alt="">
-            </div>
-            <a href="form.php"><div class="text">Forms</div></a>
             <div>
                 <img src="../assets/icons/stats.svg" alt="">
             </div>
